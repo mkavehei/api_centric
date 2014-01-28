@@ -1,0 +1,45 @@
+Assumptions:
+ - This is a combined design of RESTful API-Centric design and MVC design.
+   
+ - Valid API calls are as follow: 
+      // example: http://localhost/api/user/1233 "an integer"
+      // example: http://localhost/api/user/new
+      // example: http://localhost/api/user/ score      
+      // example: http://localhost/api/user/edit
+      // example: http://localhost/api/user/get? key="total_players"
+      // example: http://localhost/api/user/get? key="total_players_today"
+      // example: http://localhost/api/user/get? key="top_ten_players_by_score"
+
+ - document root is /var/www/htdocs/
+
+ - There is no view layer here! Only data layer and core of application!
+
+   
+Instructions:      
+ - Database can be created at mysql command line by running:
+   mysql> source users_schema.sql;
+   This will create some views too to improve performance.    
+   
+ - To initialize database and tables with some data, in shell command run: 
+   shell> php addUsers.php
+    
+ - For API Centric approach, follow this instruction:
+   - create a folder with that name 'user' under document_root and create a php file 'index.php' 
+     under that folder for front end controller
+     How:   shell> touch /var/www/htdocs/user/index.php 
+     For security purpose: shell> chmod 640 /var/www/htdocs/user/index.php
+       
+ - under document_root, create a file 'index'php' as home page 
+   How:  shell> touch  /var/www/htdocs/index.php 
+   For accessibility purpose: shell> chmod 755 /var/www/htdocs/index.php
+            
+Here is the list of files:
+/var/www/htdocs/index.php 
+/var/www/htdocs/dispatcher.php 
+/var/www/htdocs/addUsers.php 
+/var/www/htdocs/users_schema.s ql
+/var/www/htdocs/RESTFul.php
+/var/www/htdocs/user/index.php
+/var/www/htdocs/user/ userController.php
+/var/www/htdocs/user/usersDB. php 
+
